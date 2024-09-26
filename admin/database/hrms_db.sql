@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2024 at 03:00 AM
+-- Generation Time: Sep 26, 2024 at 09:11 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -19,9 +19,8 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `hrms_db`
-
 CREATE DATABASE `hrms_db`;
-USE hrms_db;
+USE `hrms_db`;
 --
 
 -- --------------------------------------------------------
@@ -44,7 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`ID`, `USERNAME`, `FULLNAME`, `IMAGE`, `EMAIL`, `PASSWORD`) VALUES
-(1, 'Jilo123', 'Angelo Vijega', '1727311695.jpg', 'angelovijega@gmail.com', '$2y$10$RFr/Qry6XdJicSorJbqUfuGiup/TzOz8jmQGEsydzAIu1K3q18YtK');
+(1, 'Admin', 'Admin', '1727334556.png', 'admin@admin.com', '$2y$10$vOgTNiwpqzcoba2t16P.F.yuCCmzJ9ohU7U/2EvIp0yAPEOmz1RtG');
 
 -- --------------------------------------------------------
 
