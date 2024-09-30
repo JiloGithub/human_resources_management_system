@@ -2,7 +2,7 @@
 include './controller/EmployeeController.php';
 $employee = new EmployeeController;
 $employee->isAuth();
-
+$employee->delete_employee();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +17,13 @@ $employee->isAuth();
     <link rel="stylesheet" href="assets/vendors/chartjs/Chart.min.css">
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/css/app.css">
+    <style>
+        th,
+        td {
+            font-size: 12px;
+            padding: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,11 +50,12 @@ $employee->isAuth();
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>Employee Name</th>
-                                                <th>Email</th>
-                                                <th>Mobile No.</th>
-                                                <th>Action</th>
+                                                <th>NO.</th>
+                                                <th>UNIQUE ID</th>
+                                                <th>EMPLOYEE NAME</th>
+                                                <th>EMAIL</th>
+                                                <th>MOBILE NO.</th>
+                                                <th>OPTION</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -59,11 +67,13 @@ $employee->isAuth();
                                             ?>
                                                     <tr>
                                                         <td><?= $no++; ?></td>
+                                                        <td><?= $row->UNIQUE_ID; ?></td>
                                                         <td><?= $row->SURNAME . ', ' . $row->FIRSTNAME . ', ' . $row->MIDDLENAME; ?></td>
                                                         <td><?= $row->EMAIL_ADDRESS; ?></td>
                                                         <td><?= $row->MOBILE_NO; ?></td>
                                                         <td>
-                                                            <a href="edit-employee.php?employee_id=<?= $row->EMPLOYEE_ID ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                            <a href="edit-employee.php?employee_id=<?= $row->EMPLOYEE_ID ?>" class="btn btn-sm btn-primary"> <i data-feather="edit" width="20"></i></a>
+                                                            <a onclick="return window.confirm('Are you want to delete?')" href="employee-list.php?employee_id=<?= $row->EMPLOYEE_ID ?>" class="btn btn-sm btn-danger"> <i data-feather="trash" width="20"></i></a>
                                                         </td>
                                                     </tr>
                                                 <?php

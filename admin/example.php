@@ -1,32 +1,36 @@
 <?php
 
+$time_in = strtotime('8:00 am');
+$time_out = strtotime('5:00 pm');
 
-function save($TableName, $data, $data2)
-{
-    $column = implode(',', array_keys($data));
-    $placeholder = implode(',', array_fill(0, count($data), '?'));
-    $placeholder2 = implode(',', array_fill(0, count($data2), '?'));
+$time_difference = ($time_in - $time_out);
+$working_hrs = $time_difference / 3600;
 
-    $sql = "INSERT INTO `$TableName` (" . $column . ") VALUES (" . $placeholder . ")";
+$formatted_hrs = number_format($working_hrs);
 
-    if ($data2 !== null) {
-        $sql .= ",(" . $placeholder2 . ")";
-    }
-    return $sql;
-}
-
+$TableName = 'users';
 $data = [
-    'ELEMENTARY' => 'Elementary1',
-    'ELEMENTARY_ADDRESS' => 'San Andres 2',
-    'ELEMENTARY_FROM' => '2019',
-    'ELEMENTARY_TO' => '2023',
+    'UNIQUE_ID' => 'TIN_000111',
 ];
-$data2 = [
-    'ELEMENTARY' => 'Elementary1',
-    'ELEMENTARY_ADDRESS' => 'San Andres 2',
-    'ELEMENTARY_FROM' => '2019',
-    'ELEMENTARY_TO' => '2023',
+$AndClause = [
+    'DATE' => date('M d, Y'),
 ];
 
-$sql = save('educ', $data, $data2);
-print_r($sql);
+$column = implode(',', array_keys($data));
+$placeholder = implode(',', array_fill(0, count($data), '?'));
+
+$column2 = implode(',', array_keys($AndClause));
+$placeholder2 = implode(',', array_fill(0, count($AndClause), '?'));
+
+
+$sql = "SELECT * FROM `$TableName` WHERE " . $column . " = " . $placeholder . " AND " . $column2 . " = " . $placeholder2 . "";
+
+// $stmt = $this->conn->prepare($sql);
+// foreach ($data as $value) {
+//     $stmt->bindValue(1, $value);
+// }
+// foreach ($AndClause as $value) {
+//     $stmt->bindValue(1, $value);
+// }
+
+print($sql);

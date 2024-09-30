@@ -11,7 +11,7 @@ $admin->Login();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Human Resources Management System</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
-
+    <!-- <link rel="shortcut icon" href="assets/images/avatar/avatar-1.png" type="image/x-icon"> -->
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
 

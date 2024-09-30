@@ -10,6 +10,7 @@ class EmployeeController extends Controller
         Request::method('btn-educational-bg-next', function () {
 
             $data = [
+                'UNIQUE_ID' => 'UID-' . Hash::unique(8),
                 'FIRSTNAME' => Input::Validate('firstname'),
                 'MIDDLENAME' => Input::Validate('middlename'),
                 'SURNAME' => Input::Validate('surname'),
@@ -151,6 +152,7 @@ class EmployeeController extends Controller
         Request::method('btn-educational-bg-update', function () {
 
             $data = [
+
                 'FIRSTNAME' => Input::Validate('firstname'),
                 'MIDDLENAME' => Input::Validate('middlename'),
                 'SURNAME' => Input::Validate('surname'),
@@ -209,7 +211,7 @@ class EmployeeController extends Controller
                         'YEAR_GRADUATED ' => Input::Validate('educ_bg_elementary_year_graduated'),
                         'SCHOLARSHIP_ACADEMIC_HONOR_RECIEVED' => Input::Validate('educ_bg_elementary_scholarship_academic_honors_recieved'),
                     ];
-                    $this->update('educational_background', $data, "LEVEL = 'Elementary'", $this->where('EMPLOYEE_ID', $_GET['employee_id']));
+                    $this->update('educational_background', $data, $this->where('LEVEL', 'Elementary'), $this->where('EMPLOYEE_ID', $_GET['employee_id']));
 
                     $data2 = [
                         'SCHOOL_NAME' => Input::Validate('educ_bg_secondary_name_of_school'),
@@ -221,7 +223,7 @@ class EmployeeController extends Controller
                         'SCHOLARSHIP_ACADEMIC_HONOR_RECIEVED ' => Input::Validate('educ_bg_secondary_scholarship_academic_honors_recieved'),
 
                     ];
-                    $this->update('educational_background', $data2, "LEVEL = 'Secondary'", $this->where('EMPLOYEE_ID', $_GET['employee_id']));
+                    $this->update('educational_background', $data2, $this->where('LEVEL', 'Secondary'), $this->where('EMPLOYEE_ID', $_GET['employee_id']));
 
                     $data3 = [
                         'SCHOOL_NAME' => Input::Validate('educ_bg_college_name_of_school'),
@@ -233,7 +235,7 @@ class EmployeeController extends Controller
                         'SCHOLARSHIP_ACADEMIC_HONOR_RECIEVED ' => Input::Validate('educ_bg_college_scholarship_academic_honors_recieved'),
 
                     ];
-                    $this->update('educational_background', $data3, "LEVEL = 'College'", $this->where('EMPLOYEE_ID', $_GET['employee_id']));
+                    $this->update('educational_background', $data3, $this->where('LEVEL', 'College'), $this->where('EMPLOYEE_ID', $_GET['employee_id']));
 
                     $data4 = [
                         'SCHOOL_NAME' => Input::Validate('educ_bg_vocational_name_of_school'),
@@ -245,7 +247,7 @@ class EmployeeController extends Controller
                         'SCHOLARSHIP_ACADEMIC_HONOR_RECIEVED ' => Input::Validate('educ_bg_vocational_scholarship_academic_honors_recieved'),
 
                     ];
-                    $result = $this->update('educational_background', $data4, "LEVEL = 'Vocational'", $this->where('EMPLOYEE_ID', $_GET['employee_id']));
+                    $result = $this->update('educational_background', $data4, $this->where('LEVEL', 'Vocational'), $this->where('EMPLOYEE_ID', $_GET['employee_id']));
 
                     Redirect::to('employee-list', 'Update Success!', 'success');
                 } else {
@@ -255,5 +257,20 @@ class EmployeeController extends Controller
                 Redirect::to('employee-list', 'Update Failed!', 'danger');
             }
         });
+    }
+
+    public function delete_employee()
+    {
+
+        if (isset($_GET['employee_id'])) {
+            $result = $this->delete('employees', $this->where('EMPLOYEE_ID', $_GET['employee_id']));
+            if ($result) {
+                Redirect::to('employee-list', 'Deleted Success!', 'success');
+            } else {
+                Redirect::to('employee-list', 'Deleted Failed!', 'danger');
+            }
+        } else {
+            return false;
+        }
     }
 }

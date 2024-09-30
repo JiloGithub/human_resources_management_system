@@ -64,10 +64,16 @@ class Controller extends Connection
 		}
 	}
 
+
+
+
+
+
 	public function select($TableName, $data)
 	{
 		$column = implode(',', array_keys($data));
 		$placeholder = implode(',', array_fill(0, count($data), '?'));
+
 
 
 		$sql = "SELECT * FROM `$TableName` WHERE " . $column . " = " . $placeholder . "";
@@ -79,6 +85,25 @@ class Controller extends Connection
 		return $stmt;
 	}
 
+	public function find($TableName, $WhereClause, $WhereClause2 = null)
+	{
+
+		$sql = "SELECT * FROM `$TableName` WHERE $WhereClause";
+
+		if ($WhereClause2 !== null) {
+			$sql .= " AND $WhereClause2";
+		}
+		$stmt = $this->conn->prepare($sql);
+		$stmt->execute();
+
+		return $stmt;
+	}
+
+
+
+
+
+
 	public function selectAll($TableName)
 	{
 		$sql = "SELECT * FROM `$TableName`";
@@ -88,16 +113,10 @@ class Controller extends Connection
 		return $stmt;
 	}
 
-	public function Inner_Join($table1, $param1, $table2, $param2, $table3 = null, $param3 = null, $table4 = null, $param4 = null, $table5 = null, $param5 = null, $WhereClause = null)
+	public function Inner_Join($table1, $param1, $table2, $param2)
 	{
 
 		$sql = "SELECT * FROM `$table1` INNER JOIN `$table2` ON $table1.$param1 = $table2.$param2";
-		if ($table3 !== null && $param3 !== null) {
-			$sql .= " INNER JOIN `$table3` ON $table1.$param1 = $table3.$param3";
-		}
-		if ($WhereClause !== null) {
-			$sql .= " INNER JOIN `$table3` ON $table1.$param1 = $table3.$param3";
-		}
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
@@ -142,6 +161,15 @@ class Controller extends Connection
 	}
 	public function where($column, $data)
 	{
-		return $column . ' = ' . $data;
+		return $column . ' = ' . "'" . $data . "'";
+	}
+
+	public function and($TableName, $param1, $param2)
+	{
+		$sql = "SELECT * FROM `$TableName` WHERE $param1 AND $param2";
+
+		$stmt = $this->conn->prepare($sql);
+		$stmt->execute();
+		return $stmt;
 	}
 }

@@ -639,7 +639,7 @@ $employee->update_employee();
                                                     id="btn-educational-bg-previous"
                                                     class="btn btn-primary btn-sm">Previous</button>
                                                 <button type="submit" name="btn-educational-bg-update" id="btn-educational-bg-update"
-                                                    class="btn btn-primary btn-sm">Submit</button>
+                                                    class="btn btn-success btn-sm">Submit</button>
                                             </div>
                                         </div>
                                         <!-- <div class="tab-pane fade" id="cse_elegibility" role="tabpanel"
