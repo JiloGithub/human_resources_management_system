@@ -42,11 +42,24 @@
                 </li>
 
 
-                <li class="sidebar-item">
+                <li class="sidebar-item  has-sub">
+
                     <a href="" class='sidebar-link'>
                         <i data-feather="user-minus" width="20"></i>
                         <span>Employee Leave</span>
                     </a>
+
+
+                    <ul class="submenu ">
+
+                        <li>
+                            <a href="">Pending Leave</a>
+                        </li>
+
+                        <li>
+                            <a href="">Rejected Leave</a>
+                        </li>
+                    </ul>
 
                 </li>
 

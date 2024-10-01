@@ -260,15 +260,15 @@ $employee->update_employee();
                                                 <div class="col">
                                                     <div class="form-group mt-3">
                                                         <label>Mobile no:</label>
-                                                        <input type="text" name="mobile_no" id="mobile_no" value="<?php echo $data[0]['MOBILE_NO']; ?>"
+                                                        <input type="tel" name="mobile_no" id="mobile_no" value="<?php echo $data[0]['MOBILE_NO']; ?>"
                                                             class="form-control" />
                                                     </div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="form-group mt-3">
                                                         <label>Email Address:</label>
-                                                        <input type="text" name="email_address" id="email_address" value="<?php echo $data[0]['EMAIL_ADDRESS']; ?>"
-                                                            class="form-control" />
+                                                        <input type="email" name="email_address" id="email_address" value="<?php echo $data[0]['EMAIL_ADDRESS']; ?>"
+                                                            class="form-control" disabled />
                                                     </div>
                                                 </div>
                                             </div>
@@ -322,7 +322,7 @@ $employee->update_employee();
                                                 <div class="col">
                                                     <div class="form-group mt-3">
                                                         <label>Mobile No.:</label>
-                                                        <input type="number" name="fam_back_mobile_no" id="fam_back_mobile_no" value="<?php echo $data[0]['FB_MOBILE_NO']; ?>"
+                                                        <input type="tel" name="fam_back_mobile_no" id="fam_back_mobile_no" value="<?php echo $data[0]['FB_MOBILE_NO']; ?>"
                                                             class="form-control" />
                                                     </div>
                                                 </div>

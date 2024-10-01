@@ -29,6 +29,7 @@ $admin->Login();
                                 <?php
                                 include 'include/alert.php';
                                 ?>
+                                <img src="assets/images/avatar/users.png" width="80px" height="80px" style="border-radius: 50%;">
                                 <h3>ADMINISTRATOR</h3>
                             </div>
 

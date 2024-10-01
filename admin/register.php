@@ -27,6 +27,7 @@ $admin->register();
                             include 'include/alert.php';
                             ?>
                             <div class="text-center mb-5">
+                                <img src="assets/images/avatar/users.png" width="80px" height="80px" style="border-radius: 50%;">
                                 <h3>Register</h3>
                                 <p>Please fill the form to register.</p>
                             </div>

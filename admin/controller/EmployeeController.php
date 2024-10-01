@@ -106,7 +106,7 @@ class EmployeeController extends Controller
                     ];
                     $result = $this->save('educational_background', $data, $data2, $data3, $data4);
                     if ($result) {
-                        Redirect::to('employee', 'Create Success!', 'success');
+                        Redirect::to('employee-list', 'Create Success!', 'success');
                     } else {
                         Redirect::to('employee', 'Create Failed!', 'danger');
                     }
@@ -174,7 +174,7 @@ class EmployeeController extends Controller
                 'RESIDENTIAL_ADDRESS' => Input::Validate('residential_address'),
                 'PERMANENT_ADDRESS' => Input::Validate('permenent_address'),
                 'MOBILE_NO' => Input::Validate('mobile_no'),
-                'EMAIL_ADDRESS' => Input::Validate('email_address'),
+                // 'EMAIL_ADDRESS' => Input::Validate('email_address'),
             ];
             $result = $this->update('employees', $data, $this->where('EMPLOYEE_ID', $_GET['employee_id']));
             if ($result) {

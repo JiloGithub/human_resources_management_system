@@ -260,14 +260,14 @@ $employee->Create_Imployee();
                                                 <div class="col">
                                                     <div class="form-group mt-3">
                                                         <label>Mobile no:</label>
-                                                        <input type="text" name="mobile_no" id="mobile_no"
+                                                        <input type="tel" name="mobile_no" id="mobile_no"
                                                             class="form-control" />
                                                     </div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="form-group mt-3">
                                                         <label>Email Address:</label>
-                                                        <input type="text" name="email_address" id="email_address"
+                                                        <input type="email" name="email_address" id="email_address"
                                                             class="form-control" />
                                                     </div>
                                                 </div>
@@ -322,7 +322,7 @@ $employee->Create_Imployee();
                                                 <div class="col">
                                                     <div class="form-group mt-3">
                                                         <label>Mobile No.:</label>
-                                                        <input type="number" name="fam_back_mobile_no" id="fam_back_mobile_no"
+                                                        <input type="tel" name="fam_back_mobile_no" id="fam_back_mobile_no"
                                                             class="form-control" />
                                                     </div>
                                                 </div>

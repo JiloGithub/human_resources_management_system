@@ -28,7 +28,6 @@ $data = $dtr->fetch();
             color: #cc0000;
         }
 
-        th,
         td {
             font-size: 12px;
             padding: 5px;
@@ -135,8 +134,8 @@ $data = $dtr->fetch();
                         <table class="table" width="100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 5px;">NO.</th>
-                                    <th>EMPLOYEE NAME</th>
+                                    <th>UNIQUE_ID</th>
+                                    <th>EMPLOYEE</th>
                                     <th style="width: 200px;">TIME IN</th>
                                     <th style="width: 200px;">TIME OUT</th>
                                     <th>DATE</th>
@@ -151,7 +150,7 @@ $data = $dtr->fetch();
                                     foreach ($data as $row) {
                                 ?>
                                         <tr>
-                                            <td><?php echo $no++ ?></td>
+                                            <td><?php echo $row['UNIQUE_ID']; ?></td>
                                             <td><?php echo $row['SURNAME'] . ', ' . $row['FIRSTNAME']; ?></td>
                                             <td>
                                                 <?php

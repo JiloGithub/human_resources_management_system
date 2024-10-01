@@ -18,7 +18,6 @@ $employee->delete_employee();
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <style>
-        th,
         td {
             font-size: 12px;
             padding: 5px;
@@ -51,7 +50,7 @@ $employee->delete_employee();
                                         <thead>
                                             <tr>
                                                 <th>NO.</th>
-                                                <th>UNIQUE ID</th>
+                                                <th>UNIQUE_ID</th>
                                                 <th>EMPLOYEE NAME</th>
                                                 <th>EMAIL</th>
                                                 <th>MOBILE NO.</th>
