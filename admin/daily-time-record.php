@@ -4,7 +4,9 @@ $dtr = new DailyTimeRecordController;
 $dtr->isAuth();
 $dtr->time_in();
 $dtr->time_out();
+$dtr->delete_dtr();
 $data = $dtr->fetch();
+
 
 // print_r($data);
 ?>
@@ -198,6 +200,7 @@ $data = $dtr->fetch();
                                             </td>
                                             <td>
                                                 <a href="edit-daily-time-record.php?employee_id=<?php echo $row['EMPLOYEE_ID'] ?>&id=<?php echo $row['ID'] ?>" class="btn btn-sm btn-primary"><i data-feather="edit" width="20"></i></a>
+                                                <a onclick="return window.confirm('Are you want to delete?')" href="daily-time-record.php?employee_id=<?php echo $row['EMPLOYEE_ID'] ?>&id=<?php echo $row['ID'] ?>" class="btn btn-sm btn-danger"><i data-feather="trash" width="20"></i></a>
                                             </td>
                                         </tr>
                                     <?php

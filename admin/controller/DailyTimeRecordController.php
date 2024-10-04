@@ -104,4 +104,16 @@ class DailyTimeRecordController extends Controller
             }
         });
     }
+
+    public function delete_dtr()
+    {
+        if (isset($_GET['employee_id'])) {
+            $res = $this->delete('daily_time_record', $this->where('EMPLOYEE_ID', $_GET['employee_id']));
+            if ($res) {
+                Redirect::to('daily-time-record', 'Delete Successfully!', 'success');
+            } else {
+                Redirect::to('daily-time-record', 'Delete Failed!', 'danger');
+            }
+        }
+    }
 }
